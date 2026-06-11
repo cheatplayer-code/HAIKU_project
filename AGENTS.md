@@ -18,21 +18,23 @@ The product collects buying intents and groups similar demand into city-level po
 
 Use only this architecture unless explicitly changed by the human:
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Supabase Postgres
-- pgvector later
-- Claude API later for intent parsing
+- FastAPI
+- Python
+- Pydantic models
+- pytest tests
+- in-memory demo repository first
+- optional vector similarity later
+- optional LLM parser later
 - cached parser fallback
-- Vercel
 
 Do not introduce:
 
-- FastAPI
-- Flask
-- Python backend
-- Express backend
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase as current requirement
+- pgvector as current requirement
+- Vercel as current requirement
 - duplicate API service
 - another database unless explicitly approved
 
@@ -127,10 +129,8 @@ For every implementation task, add or run relevant checks.
 Expected later commands may include:
 
 ```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
+pytest
+python -m pytest
 ```
 
 If a command cannot run because the project is not scaffolded yet, state that clearly.
@@ -152,7 +152,7 @@ Do not claim success without evidence.
 
 The work should be rejected if it:
 
-- creates a FastAPI or Flask backend
+- creates a Next.js or TypeScript frontend
 - mixes unrelated architectures
 - builds UI during a logic/API-only task
 - changes public API schemas without approval

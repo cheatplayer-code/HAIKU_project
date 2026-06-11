@@ -29,22 +29,24 @@ If implementation conflicts with these files, stop and report the conflict befor
 
 Use:
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Supabase Postgres
-- pgvector later for similarity
-- Claude API later for live intent parsing
+- FastAPI
+- Python
+- Pydantic models
+- pytest tests
+- in-memory demo repository first
+- optional vector similarity later
+- optional LLM parser later
 - cached parser fallback for demo reliability
-- Vercel deployment
 
 Do not use:
 
-- FastAPI
-- Flask
-- Python backend
-- Express backend
-- duplicate backend systems
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase as current requirement
+- pgvector as current requirement
+- Vercel as current requirement
+- duplicate frontend/backend systems
 - real scraping as a required demo dependency
 - committed API keys
 - fake ML claims
@@ -172,15 +174,15 @@ Build in small phases.
 Approved phase order:
 
 1. Context files
-2. Minimal Next.js scaffold
-3. TypeScript domain types
+2. Minimal FastAPI scaffold
+3. Pydantic domain models
 4. Pure intent parsing logic
 5. Pure pool matching logic
 6. Demo seed data
 7. API endpoints
-8. Minimal UI screens
-9. Tests/evals
-10. Audit/fix pass
+8. Tests/evals
+9. Audit/fix pass
+10. Optional UI later
 
 Never build everything in one task.
 

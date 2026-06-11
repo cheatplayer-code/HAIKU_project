@@ -6,15 +6,17 @@ This document defines the stable JSON API contract for the Birge MVP.
 
 Target implementation later:
 
-- Next.js Route Handlers
-- TypeScript
-- Supabase Postgres
-- pgvector
-- Claude API with cached fallback
+- FastAPI
+- Python
+- Pydantic models
+- pytest tests
+- in-memory demo repository first
+- optional vector similarity later
+- optional LLM parser later with cached fallback
 
-No FastAPI.
+No Next.js.
 
-No separate backend.
+No separate frontend required for API-only phases.
 
 ## General response format
 
@@ -388,10 +390,8 @@ When a user adds the 25th intent, the API must return:
 Later `.env.example` may include:
 
 ```txt
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
 ANTHROPIC_API_KEY=
+DATABASE_URL=
 ```
 
 Never commit real values.

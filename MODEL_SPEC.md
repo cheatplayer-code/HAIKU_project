@@ -118,7 +118,7 @@ An intent can match a pool only if:
 Preferred implementation later:
 
 - text embedding for `normalizedTitle + specs + category`
-- stored vector in Supabase pgvector
+- optional pgvector similarity in database
 - cosine similarity against pool centroid
 
 Fallback implementation for MVP:
