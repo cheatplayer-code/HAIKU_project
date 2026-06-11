@@ -451,17 +451,17 @@ class TestRuleChecksIncluded:
         assert result.rule_checks.similarity_passed is True
 
 
-class TestNoApiEndpointsAdded:
-    """Test 14: app.main still exposes only /health; no product API endpoints."""
+class TestPhaseEightApiEndpointsAdded:
+    """Test 14: app.main exposes health and Phase 8 API endpoints."""
 
-    def test_only_health_endpoint_exists(self) -> None:
-        """Verify no API endpoints were added in this phase."""
+    def test_health_and_api_endpoints_exist(self) -> None:
+        """Verify Phase 8 API endpoints are registered."""
         from app.main import app
 
         routes = sorted(route.path for route in app.routes)
         assert "/health" in routes
-        assert "/api/intent/parse" not in routes
-        assert "/api/pools/match" not in routes
-        assert "/api/intents" not in routes
-        assert "/api/pools" not in routes
-        assert "/api/profile/intents" not in routes
+        assert "/api/intent/parse" in routes
+        assert "/api/pools/match" in routes
+        assert "/api/intents" in routes
+        assert "/api/pools" in routes
+        assert "/api/profile/intents" in routes

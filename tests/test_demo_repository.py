@@ -198,17 +198,17 @@ class TestUserIntents:
         assert len(stored_intents) == 2
 
 
-class TestNoApiEndpoints:
-    """Test that no API endpoints have been added."""
+class TestApiRoutesAfterPhaseEight:
+    """Test that Phase 8 API routes are registered without removing health."""
 
-    def test_app_main_still_exposes_only_health(self):
-        """app.main still exposes only /health; no product API endpoints."""
+    def test_app_main_exposes_health_and_api_routes(self):
+        """app.main exposes /health and Phase 8 API endpoints."""
         from app.main import app
         
         routes = sorted(route.path for route in app.routes)
         assert "/health" in routes
-        assert "/api/intent/parse" not in routes
-        assert "/api/pools/match" not in routes
-        assert "/api/intents" not in routes
-        assert "/api/pools" not in routes
-        assert "/api/profile/intents" not in routes
+        assert "/api/intent/parse" in routes
+        assert "/api/pools/match" in routes
+        assert "/api/intents" in routes
+        assert "/api/pools" in routes
+        assert "/api/profile/intents" in routes
